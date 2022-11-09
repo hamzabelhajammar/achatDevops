@@ -14,12 +14,23 @@ services:
     volumes:
       - mysqlcontainer:/var/lib/mysql:rw
   projetdevops-backend:
-    depends_on:
-      - mysqlcontainer
-    container_name: projetdevops-backend
-    ports:
-      - '8089:8089'
-    image: hamzabelhajammar/projetdevops-backend
+   container_name: spring
+   image: "spring"
+   depends_on:
+     - mysqldb
+   build: .
+   restart: on-failure
+   ports:
+     - "8089:8089"
+   environment:
+     SPRING_APPLICATION_JSON: '{
+       "spring.datasource.url"  : "jdbc:mysql://mysqldb:3306/achatdb?useSSL=false",
+       "spring.datasource.username" : "root",
+       "spring.datasource.password" : "root",
+       "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
+       "spring.jpa.hibernate.ddl-auto" : "update"}'
+   stdin_open: true
+   tty: true
 
 
 volumes:
