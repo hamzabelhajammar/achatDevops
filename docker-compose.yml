@@ -1,7 +1,7 @@
 version: "3.4"
 
 services:
-  mysql-container3:
+  mysql-container:
     container_name: mysql-container
     ports:
       - '3307:3306'
@@ -11,7 +11,7 @@ services:
     
   projetdevops-backend:
     depends_on:
-      - mysql-container3
+      - mysql-container
     container_name: projetdevops-backend
     ports:
       - '8089:8089'
