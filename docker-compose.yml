@@ -23,4 +23,4 @@ services:
 
 
 volumes:
-  mysql-container3: { }
+  mysqlcontainer: { }
