@@ -26,8 +26,8 @@ public class OperateurServiceTest {
 		List<Operateur> operateurs = operateurService.retrieveAllOperateurs();
 		int expected = operateurs.size();
 		Operateur o = new Operateur();
-		o.setNom("Daami");
-		o.setPrenom("Adem");
+		o.setNom("bel haj ammar");
+		o.setPrenom("hamza");
 		o.setPassword("passwd");
 		Operateur savedOperateur= operateurService.addOperateur(o);
 		assertEquals(expected+1, operateurService.retrieveAllOperateurs().size());
